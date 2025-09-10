@@ -109,4 +109,50 @@ public class Dinosaurios {
         return "It's " + time + ":00 " + "-" + " Feeding time for " + dino + " with " + food + "kg of food.";
     }
 
+    static void DisplayDinoInfo(String name, int age, double weight, String species, int enclosures) {
+        System.out.println("Name: " + name + "\t" +
+                "Age: " + age + "\t" +
+                "Weight: " + weight + "\t" +
+                "Species: " + species + "\t" +
+                "Enclosures: " + enclosures);
+    }
+
+    public static void DinosauriosDinoTracker() {
+        // 1. Initialization
+        final int dbLen = 10;
+        String[] dinoNames = new String[dbLen];
+        int[] dinoAges = new int[dbLen];
+        String[] dinoSpecies = new String[dbLen];
+        int[] dinoEnclosures = new int[dbLen];
+        double[] dinoWeights = new double[dbLen];
+
+        // 2. Data entry
+        for (int i = 0; i < 5; i++) {
+            dinoNames[i] = "Dinosaur" + (i + 1);
+            dinoAges[i] = (i + 1) * (i + 1);
+            dinoSpecies[i] = "Species" + (i + 1);
+            dinoEnclosures[i] = (i + 1);
+            dinoWeights[i] = (i + 1) * 100 + (i + 1) * (i + 1);
+        }
+
+        // 3. Displaying details
+        for (int i = 0; i < 5; i++) {
+            DisplayDinoInfo(dinoNames[i], dinoAges[i], dinoWeights[i], dinoSpecies[i], dinoEnclosures[i]);
+        }
+
+        // 4. Average calculations
+        double ageAvg = 0;
+        double weightAvg = 0;
+
+        for (int i = 0; i < 5; i++) {
+            ageAvg += dinoAges[i];
+            weightAvg += dinoWeights[i];
+        }
+
+        ageAvg /= 5;
+        weightAvg /= 5;
+
+        System.out.println("Avg. age: " + ageAvg + "\t" + "Avg. weight: " + weightAvg);
+    }
+
 }

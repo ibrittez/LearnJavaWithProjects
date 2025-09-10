@@ -25,5 +25,6 @@ public class App {
         Dinosaurios.DinosauriosRolDeEmpleado("Security", 10, 10.0);
         Dinosaurios.DinosauriosRolDeEmpleado("Security", 10, 3.0);
         Dinosaurios.DinosauriosFoodSchedule();
+        Dinosaurios.DinosauriosDinoTracker();
     }
 }
