@@ -1,6 +1,7 @@
 package com.mesozoic_eden.app;
 
 import java.util.Scanner;
+import java.time.LocalDateTime;
 
 /**
  * Hello world!
@@ -55,7 +56,7 @@ public class App {
                 checkParkHours();
                 break;
             case 3:
-                // greetGuest();
+                greetGuest();
                 break;
             case 4:
                 // checkVisitorsCount();
@@ -121,5 +122,11 @@ public class App {
         }
 
         System.out.println("The park is closed!");
+    }
+
+    public void greetGuest() {
+        for (String name : guestNames) {
+            System.out.println("Welcome to Mesozoic Eden " + name + "!");
+        }
     }
 }
