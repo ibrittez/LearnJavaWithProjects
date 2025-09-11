@@ -52,7 +52,7 @@ public class App {
                 addDinosaur();
                 break;
             case 2:
-                // checkParkHours();
+                checkParkHours();
                 break;
             case 3:
                 // greetGuest();
@@ -109,5 +109,17 @@ public class App {
             System.out.println("| " + dinoNames[i] + "\t| " + dinoAges[i] + "\t| " + dinoWeights[i] + "\t|");
 
         }
+    }
+
+    public void checkParkHours() {
+        LocalDateTime now = LocalDateTime.now();
+        int hour = now.getHour();
+
+        if (hour >= 8 && hour <= 21) {
+            System.out.println("The park is open!");
+            return;
+        }
+
+        System.out.println("The park is closed!");
     }
 }
