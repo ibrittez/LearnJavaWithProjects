@@ -1,30 +1,57 @@
 package com.mesozoic_eden.app;
-import com.mesozoic_eden.dinosaur.Saludos;
-import com.mesozoic_eden.dinosaur.Dinosaurios;
+
+import java.util.Scanner;
 
 /**
  * Hello world!
  */
 public class App {
+    Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        App app = new App();
+        app.start();
+    }
 
-        Saludos.SaludosBienvenida();
-        Saludos.SaludosHorarios();
-        Saludos.SaludosAdvertencia();
+    public void start() {
+        while (true) {
+            displayMenu();
+            int choice = scanner.nextInt();
+            handleMenuChoice(choice);
+        }
+    }
 
-        Dinosaurios.DinosauriosPresentar("T-rex", 2.123f, 8.3f, 2537.86f);
+    public void displayMenu() {
+        System.out.println("Welcome to Mesozoic Eden Assistant!");
+        System.out.println("1. Add Dinosaur");
+        System.out.println("2. Check Park Hours");
+        System.out.println("3. Greet Guest");
+        System.out.println("4. Check Visitors Count");
+        System.out.println("5. Manage Staff");
+        System.out.println("6. Exit");
+        System.out.print("Enter your choice: ");
+    }
 
-        Dinosaurios.DinosauriosProfileGenerator("Puppy", 679, "T-rex", true, 658.9f);
-
-        Dinosaurios.DinosauriosMealPlanner(2000.0, 0.05, 2);
-
-        Dinosaurios.DinosauriosRolDeEmpleado("Feeding", 10, 10.0);
-        Dinosaurios.DinosauriosRolDeEmpleado("Feeding", 23, 10.0);
-        Dinosaurios.DinosauriosRolDeEmpleado("Tour guiding", 23, 10.0);
-        Dinosaurios.DinosauriosRolDeEmpleado("Security", 10, 10.0);
-        Dinosaurios.DinosauriosRolDeEmpleado("Security", 10, 3.0);
-        Dinosaurios.DinosauriosFoodSchedule();
-        Dinosaurios.DinosauriosDinoTracker();
+    public void handleMenuChoice(int choice) {
+        switch (choice) {
+            case 1:
+                // addDinosaur();
+                break;
+            case 2:
+                // checkParkHours();
+                break;
+            case 3:
+                // greetGuest();
+                break;
+            case 4:
+                // checkVisitorsCount();
+                break;
+            case 5:
+                // manageStaff();
+                break;
+            case 6:
+                System.out.println("Exiting...");
+                System.exit(0);
+        }
     }
 }
