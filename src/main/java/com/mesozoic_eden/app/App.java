@@ -62,7 +62,7 @@ public class App {
                 checkVisitorsCount();
                 break;
             case 5:
-                // manageStaff();
+                manageStaff();
                 break;
             case 6:
                 displayDinos();
@@ -139,5 +139,72 @@ public class App {
         }
 
         System.out.println("You can let new visitors enter without any problem!");
+    }
+
+    public void manageStaff() {
+        System.out.println("");
+        displayEmployeeMenu();
+        int choice = scanner.nextInt();
+        handleEmployeeMenuChoice(choice);
+    }
+
+    public void displayEmployeeMenu() {
+        System.out.println("1. List employees.");
+        System.out.println("2. Change employee job");
+        System.out.println("0. Exit");
+        System.out.print("Enter your choice: ");
+    }
+
+    public void handleEmployeeMenuChoice(int choice) {
+        switch (choice) {
+            case 1:
+                listEmployees();
+                break;
+            case 2:
+                changeEmployeeJob();
+                break;
+            default:
+                System.out.println("[ERROR]: Invalid option");
+            case 0:
+                System.out.println("Exiting...");
+                break;
+        }
+    }
+
+    public void listEmployees() {
+        System.out.println("| ID\t| Name\t\t| Job \t\t|");
+
+        for (int i = 0; i < employees.length; i++) {
+            System.out.println("| " + i + "\t| " + employees[i] + "\t| " + employeesJob[i] + "\t|");
+        }
+
+    }
+
+    public void changeEmployeeJob() {
+        System.out.println("hint: insert id 999 to list the employees.");
+
+        scanner.nextLine(); // fflush(stdin)
+
+        System.out.println("Insert employee id: ");
+        int id = scanner.nextInt();
+
+        if (id == 999) {
+            listEmployees();
+
+            scanner.nextLine(); // fflush(stdin)
+            System.out.println("Insert employee id: ");
+            id = scanner.nextInt();
+        }
+
+        if (id >= employees.length) {
+            System.out.println("[ERROR]: Invalid id");
+            return;
+        }
+
+        scanner.nextLine(); // fflush(stdin)
+        System.out.println("Insert employee new job: ");
+        String newJob = scanner.nextLine();
+
+        employeesJob[id] = newJob;
     }
 }
