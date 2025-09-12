@@ -59,7 +59,7 @@ public class App {
                 greetGuest();
                 break;
             case 4:
-                // checkVisitorsCount();
+                checkVisitorsCount();
                 break;
             case 5:
                 // manageStaff();
@@ -128,5 +128,16 @@ public class App {
         for (String name : guestNames) {
             System.out.println("Welcome to Mesozoic Eden " + name + "!");
         }
+    }
+
+    public void checkVisitorsCount() {
+        System.out.println("The park currently have " + guestNames.length + " visitors.");
+
+        if (guestNames.length >= 10) {
+            System.out.println("We are operating at full capacity. Don't let any extra visitor enter!");
+            return;
+        }
+
+        System.out.println("You can let new visitors enter without any problem!");
     }
 }
