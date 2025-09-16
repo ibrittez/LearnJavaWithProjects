@@ -4,10 +4,10 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.mesozoic_eden.app</groupId>
-  <artifactId>ParqueJurasico</artifactId>
+  <artifactId>Ch7_MesozoicEdenAssistant</artifactId>
   <version>1.0-SNAPSHOT</version>
 
-  <name>ParqueJurasico</name>
+  <name>Ch7_MesozoicEdenAssistant</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
