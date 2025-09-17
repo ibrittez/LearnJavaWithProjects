@@ -1,6 +1,7 @@
 package com.mesozoic_eden.app.park;
 
 import com.mesozoic_eden.app.model.Dinosaur;
+import com.mesozoic_eden.app.model.DinosaurType;
 
 public class DinosaurManager {
     private Dinosaur[] dinosaurs;
@@ -43,4 +44,51 @@ public class DinosaurManager {
             dinosaurs[i].displayDinosaurInfoShort();
         }
     }
+
+    public void editName(String name, int index) {
+        if (!validateIndex(index)) {
+            return;
+        }
+
+        this.dinosaurs[index].setName(name);
+    }
+
+    public void editAge(int age, int index) {
+        if (!validateIndex(index)) {
+            return;
+        }
+
+        this.dinosaurs[index].setAge(age);
+    }
+
+    public void editSpecies(String species, int index) {
+        if (!validateIndex(index)) {
+            return;
+        }
+
+        this.dinosaurs[index].setSpecies(species);
+    }
+
+    public void editType(DinosaurType type, int index) {
+        if (!validateIndex(index)) {
+            return;
+        }
+
+        this.dinosaurs[index].setType(type);
+    }
+
+    private boolean validateIndex(int index) {
+        if (dinoCount == 0) {
+            System.out.println("[WARNING]: No dinosaurs");
+            return false;
+        }
+
+        if (index < 0 || index >= dinoCount) {
+            System.out.println("[ERROR]: Invalid index");
+            return false;
+        }
+
+        return true;
+    }
+
 }
