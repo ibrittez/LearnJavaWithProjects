@@ -35,6 +35,42 @@ public class DinoHandler {
         park.getDinosaurManager().add(dino);
     }
 
+    public void edit() {
+        list();
+
+        scanner.nextLine(); // fflush(stdin)
+        System.out.print("Insert dino ID: ");
+        int id = scanner.nextInt();
+
+        System.out.println("ID \tName \tAge \tSpecies \tType");
+        System.out.println("Which field do you want to edit?");
+        System.out.println("1. Name");
+        System.out.println("2. Age");
+        System.out.println("3. Species");
+        System.out.println("4. Type");
+        System.out.println("0. Abort");
+
+        scanner.nextLine(); // fflush(stdin)
+
+        int field = scanner.nextInt();
+        scanner.nextLine(); // fflush(stdin)
+        switch (field) {
+            case 1 -> {
+                park.getDinosaurManager().editName(readDinoName(), id);
+            }
+            case 2 -> {
+                park.getDinosaurManager().editAge(readDinoAge(), id);
+            }
+            case 3 -> {
+                park.getDinosaurManager().editSpecies(readDinoSpecies(), id);
+            }
+            case 4 -> {
+                park.getDinosaurManager().editType(readDinoType(), id);
+            }
+        }
+
+    }
+
     private String readDinoName() {
         System.out.print("Enter name: ");
         String name = scanner.nextLine();

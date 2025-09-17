@@ -96,7 +96,7 @@ public class Menus {
                 handler.add();
                 break;
             case 3:
-                // handler.edit();
+                handler.edit();
                 break;
             case 4:
                 // handler.remove();
