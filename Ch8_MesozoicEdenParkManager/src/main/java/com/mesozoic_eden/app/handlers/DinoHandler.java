@@ -22,16 +22,38 @@ public class DinoHandler {
     public void add() {
         scanner.nextLine(); // fflush(stdin)
                             //
-        System.out.print("Enter name: ");
-        String name = scanner.nextLine();
+        String name = readDinoName();
 
-        System.out.print("Enter age: ");
-        int age = scanner.nextInt();
+        int age = readDinoAge();
 
         scanner.nextLine(); // fflush(stdin)
+        String species = readDinoSpecies();
+
+        DinosaurType type = readDinoType();
+
+        Dinosaur dino = new Dinosaur(name, age, species, type);
+        park.getDinosaurManager().add(dino);
+    }
+
+    private String readDinoName() {
+        System.out.print("Enter name: ");
+        String name = scanner.nextLine();
+        return name;
+    }
+
+    private int readDinoAge() {
+        System.out.print("Enter age: ");
+        int age = scanner.nextInt();
+        return age;
+    }
+
+    private String readDinoSpecies() {
         System.out.print("Enter species: ");
         String species = scanner.nextLine();
+        return species;
+    }
 
+    private DinosaurType readDinoType() {
         System.out.println("Enter type (CARNIVORE/HERVIBORE/OMNIVORE): ");
         System.out.println("1. HERVIBORE");
         System.out.println("2. CARNIVORE");
@@ -44,7 +66,7 @@ public class DinoHandler {
             case 3 -> actualType = DinosaurType.OMNIVORE;
         }
 
-        Dinosaur dino = new Dinosaur(name, age, species, actualType);
-        park.getDinosaurManager().add(dino);
+        return actualType;
     }
+
 }
