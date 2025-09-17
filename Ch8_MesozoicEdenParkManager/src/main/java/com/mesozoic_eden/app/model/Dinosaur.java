@@ -25,6 +25,22 @@ public class Dinosaur {
         return this.species;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void setSpecies(String species) {
+        this.species = species;
+    }
+
+    public void setType(DinosaurType type) {
+        this.type = type;
+    }
+
     public void displayDinosaurInfo() {
         System.out.println("======================");
         System.out.println("Dinosaur info:");
