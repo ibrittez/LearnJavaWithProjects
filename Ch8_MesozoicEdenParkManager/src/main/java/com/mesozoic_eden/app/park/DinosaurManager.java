@@ -37,8 +37,9 @@ public class DinosaurManager {
             System.out.println("[WARNING]: No dinosaurs");
             return;
         }
-        System.out.println("Name \tAge \tSpecies \tType");
+        System.out.println("ID \tName \tAge \tSpecies \tType");
         for (int i = 0; i < dinoCount; i++) {
+            System.out.print(i + "\t");
             dinosaurs[i].displayDinosaurInfoShort();
         }
     }
