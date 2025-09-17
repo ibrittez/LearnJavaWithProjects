@@ -2,6 +2,7 @@ package com.mesozoic_eden.app;
 
 import java.util.Scanner;
 import com.mesozoic_eden.app.park.Park;
+import com.mesozoic_eden.app.handlers.DinoHandler;
 
 public class Menus {
     Scanner scanner;
@@ -40,7 +41,12 @@ public class Menus {
 
         switch (choice) {
             case 1:
-                // manageDinosaurs();
+                this.dinoFlag = true;
+                while (dinoFlag) {
+                    displayDinoMenu();
+                    int dinoChoice = scanner.nextInt();
+                    handleDinoMenuChoice(dinoChoice);
+                }
                 break;
             case 2:
                 // manageEmployees();
@@ -61,4 +67,46 @@ public class Menus {
                 System.exit(0);
         }
     }
+
+    /*
+     * =======================
+     * [DINO MENU]
+     * =======================
+     */
+
+    public void displayDinoMenu() {
+        System.out.println("1. List Dinosaurs");
+        System.out.println("2. Add Dinosaur");
+        System.out.println("3. Edit Dinosaur");
+        System.out.println("4. Remove Dinosaur");
+        System.out.println("0. Exit");
+        System.out.print("Enter your choice: ");
+    }
+
+    public void handleDinoMenuChoice(int choice) {
+        DinoHandler handler = new DinoHandler(scanner, park);
+
+        cleanScreen();
+
+        switch (choice) {
+            case 1:
+                // handler.list();
+                break;
+            case 2:
+                // handler.add();
+                break;
+            case 3:
+                // handler.edit();
+                break;
+            case 4:
+                // handler.remove();
+                break;
+            default:
+                break;
+            case 0:
+                System.out.println("Exiting dino menu");
+                this.dinoFlag = false;
+        }
+    }
+
 }
