@@ -90,10 +90,10 @@ public class Menus {
 
         switch (choice) {
             case 1:
-                // handler.list();
+                handler.list();
                 break;
             case 2:
-                // handler.add();
+                handler.add();
                 break;
             case 3:
                 // handler.edit();
