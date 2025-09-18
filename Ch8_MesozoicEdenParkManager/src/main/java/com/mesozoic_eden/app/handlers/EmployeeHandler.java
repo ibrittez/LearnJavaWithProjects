@@ -3,6 +3,7 @@ package com.mesozoic_eden.app.handlers;
 import java.util.Scanner;
 
 import com.mesozoic_eden.app.model.Employee;
+import com.mesozoic_eden.app.model.EmployeeShifts;
 import com.mesozoic_eden.app.park.Park;
 
 public class EmployeeHandler {
@@ -38,7 +39,6 @@ public class EmployeeHandler {
         System.out.print("Insert employee ID: ");
         int id = scanner.nextInt();
 
-        System.out.println("ID \tName \tJob Title \tYears of xp");
         System.out.println("Which field do you want to edit?");
         System.out.println("1. Name");
         System.out.println("2. Job Title");
@@ -73,6 +73,16 @@ public class EmployeeHandler {
         park.getEmployeeManager().removeFromIndex(id);
     }
 
+    public void updateShift() {
+        list();
+
+        scanner.nextLine(); // fflush(stdin)
+        System.out.print("Insert the ID of the employee to be updated: ");
+        int id = scanner.nextInt();
+
+        park.getEmployeeManager().editShift(readEmployeeShifts(), id);
+    }
+
     private String readEmployeeName() {
         System.out.print("Enter name: ");
         String name = scanner.nextLine();
@@ -89,6 +99,18 @@ public class EmployeeHandler {
         System.out.print("Enter years of experience: ");
         int xp = scanner.nextInt();
         return xp;
+    }
+
+    private EmployeeShifts readEmployeeShifts() {
+        System.out.println("Enter shift: ");
+        for (EmployeeShifts shift : EmployeeShifts.values()) {
+            System.out.println(shift.ordinal() + ". " + shift.name());
+        }
+        System.out.print("choice: ");
+
+        int shiftInput = scanner.nextInt();
+
+        return EmployeeShifts.values()[shiftInput];
     }
 
 }

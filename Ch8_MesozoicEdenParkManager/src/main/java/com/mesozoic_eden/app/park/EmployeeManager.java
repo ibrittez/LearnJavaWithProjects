@@ -1,6 +1,7 @@
 package com.mesozoic_eden.app.park;
 
 import com.mesozoic_eden.app.model.Employee;
+import com.mesozoic_eden.app.model.EmployeeShifts;
 
 public class EmployeeManager {
     private Employee[] employees;
@@ -38,7 +39,7 @@ public class EmployeeManager {
             return;
         }
 
-        System.out.println("ID \tName \tJob Title \tYears of XP");
+        System.out.println("ID \tName \tJob Title \tYears of XP \tShift");
         for (int i = 0; i < employeeCount; i++) {
             System.out.print(i + "\t");
             employees[i].displayEmployeeInfoShort();
@@ -67,6 +68,14 @@ public class EmployeeManager {
         }
 
         this.employees[index].setYearsOfExperience(yearsOfExperience);
+    }
+
+    public void editShift(EmployeeShifts shift, int index) {
+        if (!validateIndex(index)) {
+            return;
+        }
+
+        this.employees[index].setShift(shift);
     }
 
     public void removeFromIndex(int index) {

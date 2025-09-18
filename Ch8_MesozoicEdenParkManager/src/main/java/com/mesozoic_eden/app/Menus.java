@@ -130,7 +130,8 @@ public class Menus {
         System.out.println("1. List Employees");
         System.out.println("2. Add Employee");
         System.out.println("3. Edit Employee");
-        System.out.println("4. Remove Employee");
+        System.out.println("4. Update shift");
+        System.out.println("5. Remove Employee");
         System.out.println("0. Exit");
         System.out.print("Enter your choice: ");
     }
@@ -151,6 +152,9 @@ public class Menus {
                 handler.edit();
                 break;
             case 4:
+                handler.updateShift();
+                break;
+            case 5:
                 handler.remove();
                 break;
             default:
