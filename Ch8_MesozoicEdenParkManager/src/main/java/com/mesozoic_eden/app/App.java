@@ -3,6 +3,8 @@ package com.mesozoic_eden.app;
 import com.mesozoic_eden.app.model.Dinosaur;
 import com.mesozoic_eden.app.model.DinosaurType;
 import com.mesozoic_eden.app.model.Employee;
+import com.mesozoic_eden.app.model.Guest;
+import com.mesozoic_eden.app.model.Ticket;
 import com.mesozoic_eden.app.park.Park;
 import com.mesozoic_eden.app.park.ParkLocations;
 
@@ -57,6 +59,13 @@ public class App {
         mesoEden.getEmployeeManager().add(new Employee("Maria", "Tour Guiding", 5));
         mesoEden.getEmployeeManager().add(new Employee("Mark", "Feeding ", 1));
         mesoEden.getEmployeeManager().add(new Employee("Emma", "Security", 28));
+
+        Guest guest1 = new Guest("Lionel Messi", true);
+        Guest guest2 = new Guest("George Williams", false);
+        Guest guest3 = new Guest("Emma Hill", false);
+        mesoEden.getTicketManager().add(new Ticket(50.0, guest1));
+        mesoEden.getTicketManager().add(new Ticket(25.0, guest2));
+        mesoEden.getTicketManager().add(new Ticket(30.0, guest3));
     }
 
 }
