@@ -77,6 +77,32 @@ public class DinoHandler {
 
     }
 
+    public void editStatus() {
+        list();
+
+        scanner.nextLine(); // fflush(stdin)
+        System.out.print("Insert dino ID: ");
+        int id = scanner.nextInt();
+
+        System.out.println("Which status attribute do you want to edit?");
+        System.out.println("1. Location");
+        System.out.println("2. Status");
+
+        scanner.nextLine(); // fflush(stdin)
+
+        int field = scanner.nextInt();
+        scanner.nextLine(); // fflush(stdin)
+        switch (field) {
+            case 1 -> {
+                park.getDinosaurManager().editLocation(readDinoLocation(), id);
+            }
+            case 2 -> {
+                park.getDinosaurManager().editStatus(readDinoStatus(), id);
+            }
+        }
+
+    }
+
     public void remove() {
         list();
 

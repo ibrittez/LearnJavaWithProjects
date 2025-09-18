@@ -84,8 +84,9 @@ public class Menus {
     public void displayDinoMenu() {
         System.out.println("1. List Dinosaurs");
         System.out.println("2. Add Dinosaur");
-        System.out.println("3. Edit Dinosaur");
-        System.out.println("4. Remove Dinosaur");
+        System.out.println("3. Edit Dinosaur Attributes");
+        System.out.println("4. Edit Dinosaur Status");
+        System.out.println("5. Remove Dinosaur");
         System.out.println("0. Exit");
         System.out.print("Enter your choice: ");
     }
@@ -106,6 +107,9 @@ public class Menus {
                 handler.edit();
                 break;
             case 4:
+                handler.editStatus();
+                break;
+            case 5:
                 handler.remove();
                 break;
             default:

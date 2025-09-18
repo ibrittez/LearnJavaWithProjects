@@ -92,6 +92,22 @@ public class DinosaurManager {
      * ===========================
      */
 
+    public void editLocation(ParkLocations location, int index) {
+        if (!validateIndex(index)) {
+            return;
+        }
+
+        this.dinosaurs[index].setLocation(location);
+    }
+
+    public void editStatus(String status, int index) {
+        if (!validateIndex(index)) {
+            return;
+        }
+
+        this.dinosaurs[index].setStatus(status);
+    }
+
     /*
      * ===========================
      * [UTILITIES]
