@@ -6,14 +6,14 @@ public class Park {
 
     private DinosaurManager dinosaurManager;
     private EmployeeManager employeeManager;
-    // private TicketManager ticketManager;
+    private TicketManager ticketManager;
 
     public Park(String name) {
         this.name = name;
         this.isParkOpen = false;
         this.dinosaurManager = new DinosaurManager();
         this.employeeManager = new EmployeeManager();
-        // this.ticketManager = new TicketManager();
+        this.ticketManager = new TicketManager();
     }
 
     public void openPark() {
@@ -32,7 +32,7 @@ public class Park {
         return employeeManager;
     }
 
-    // public TicketManager getTicketManager() {
-    // return ticketManager;
-    // }
+    public TicketManager getTicketManager() {
+        return ticketManager;
+    }
 }
