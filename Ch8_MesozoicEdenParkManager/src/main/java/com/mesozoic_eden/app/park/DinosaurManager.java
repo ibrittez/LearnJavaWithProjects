@@ -48,6 +48,12 @@ public class DinosaurManager {
         }
     }
 
+    /*
+     * ===========================
+     * [EDIT DINOSAUR ATRIBUTTES]
+     * ===========================
+     */
+
     public void editName(String name, int index) {
         if (!validateIndex(index)) {
             return;
@@ -79,6 +85,18 @@ public class DinosaurManager {
 
         this.dinosaurs[index].getDinosaur().setType(type);
     }
+
+    /*
+     * ===========================
+     * [EDIT DINOSAUR STATUS]
+     * ===========================
+     */
+
+    /*
+     * ===========================
+     * [UTILITIES]
+     * ===========================
+     */
 
     public void removeFromIndex(int index) {
         if (!validateIndex(index)) {
