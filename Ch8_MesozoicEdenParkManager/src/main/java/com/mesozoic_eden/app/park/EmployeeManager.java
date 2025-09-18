@@ -42,4 +42,50 @@ public class EmployeeManager {
             employees[i].displayEmployeeInfoShort();
         }
     }
+
+    public void editName(String name, int index) {
+        if (!validateIndex(index)) {
+            return;
+        }
+
+        this.employees[index].setName(name);
+    }
+
+    public void editJobTitle(String jobTitle, int index) {
+        if (!validateIndex(index)) {
+            return;
+        }
+
+        this.employees[index].setJobTitle(jobTitle);
+    }
+
+    public void editYearsOfExperience(int yearsOfExperience, int index) {
+        if (!validateIndex(index)) {
+            return;
+        }
+
+        this.employees[index].setYearsOfExperience(yearsOfExperience);
+    }
+
+    public void removeFromIndex(int index) {
+        if (!validateIndex(index)) {
+            return;
+        }
+
+        remove(employees[index]);
+    }
+
+    private boolean validateIndex(int index) {
+        if (employeeCount == 0) {
+            System.out.println("[WARNING]: No employees");
+            return false;
+        }
+
+        if (index < 0 || index >= employeeCount) {
+            System.out.println("[ERROR]: Invalid index");
+            return false;
+        }
+
+        return true;
+    }
 }
