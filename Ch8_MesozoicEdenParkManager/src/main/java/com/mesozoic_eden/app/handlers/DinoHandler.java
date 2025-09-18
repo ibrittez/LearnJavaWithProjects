@@ -100,10 +100,11 @@ public class DinoHandler {
     }
 
     private DinosaurType readDinoType() {
-        System.out.println("Enter type (CARNIVORE/HERVIBORE/OMNIVORE): ");
+        System.out.println("Enter type: ");
         System.out.println("1. HERVIBORE");
         System.out.println("2. CARNIVORE");
         System.out.println("3. OMNIVORE (default)");
+        System.out.print("choice: ");
         int typeInput = scanner.nextInt();
         DinosaurType actualType = DinosaurType.OMNIVORE;
         switch (typeInput) {
