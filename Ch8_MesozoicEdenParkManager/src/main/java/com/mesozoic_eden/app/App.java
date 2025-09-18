@@ -2,6 +2,7 @@ package com.mesozoic_eden.app;
 
 import com.mesozoic_eden.app.model.Dinosaur;
 import com.mesozoic_eden.app.model.DinosaurType;
+import com.mesozoic_eden.app.model.Employee;
 import com.mesozoic_eden.app.park.Park;
 import java.util.Scanner;
 
@@ -30,6 +31,11 @@ public class App {
         mesoEden.getDinosaurManager().add(new Dinosaur("Bronko", 10, "Broncosaurus", DinosaurType.OMNIVORE));
         mesoEden.getDinosaurManager().add(new Dinosaur("Dummy", 67, "Dummysaurus", DinosaurType.OMNIVORE));
         mesoEden.getDinosaurManager().add(new Dinosaur("Oldy", 189, "Oldysaurus", DinosaurType.HERVIBORE));
+
+        mesoEden.getEmployeeManager().add(new Employee("Peter", "Security", 22));
+        mesoEden.getEmployeeManager().add(new Employee("Maria", "Tour Guiding", 5));
+        mesoEden.getEmployeeManager().add(new Employee("Mark", "Feeding ", 1));
+        mesoEden.getEmployeeManager().add(new Employee("Emma", "Security", 28));
     }
 
 }
