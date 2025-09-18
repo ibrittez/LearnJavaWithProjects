@@ -77,6 +77,14 @@ public class DinosaurManager {
         this.dinosaurs[index].setType(type);
     }
 
+    public void removeFromIndex(int index) {
+        if (!validateIndex(index)) {
+            return;
+        }
+
+        remove(dinosaurs[index]);
+    }
+
     private boolean validateIndex(int index) {
         if (dinoCount == 0) {
             System.out.println("[WARNING]: No dinosaurs");

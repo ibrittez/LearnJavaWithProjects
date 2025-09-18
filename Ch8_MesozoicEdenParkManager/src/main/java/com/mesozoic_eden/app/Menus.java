@@ -99,7 +99,7 @@ public class Menus {
                 handler.edit();
                 break;
             case 4:
-                // handler.remove();
+                handler.remove();
                 break;
             default:
                 break;

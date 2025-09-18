@@ -71,6 +71,16 @@ public class DinoHandler {
 
     }
 
+    public void remove() {
+        list();
+
+        scanner.nextLine(); // fflush(stdin)
+        System.out.print("Insert the ID of to dino to be removed: ");
+        int id = scanner.nextInt();
+
+        park.getDinosaurManager().removeFromIndex(id);
+    }
+
     private String readDinoName() {
         System.out.print("Enter name: ");
         String name = scanner.nextLine();
