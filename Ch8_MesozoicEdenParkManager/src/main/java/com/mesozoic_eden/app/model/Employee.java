@@ -23,6 +23,18 @@ public class Employee {
         return this.yearsOfExperience;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setJobTitle(String jobTitle) {
+        this.jobTitle = jobTitle;
+    }
+
+    public void setYearsOfExperience(int yearsOfExperience) {
+        this.yearsOfExperience = yearsOfExperience;
+    }
+
     public void displayEmployeeInfo() {
         System.out.println("======================");
         System.out.println("Employee info:");
