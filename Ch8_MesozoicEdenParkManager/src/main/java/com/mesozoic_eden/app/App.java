@@ -4,6 +4,8 @@ import com.mesozoic_eden.app.model.Dinosaur;
 import com.mesozoic_eden.app.model.DinosaurType;
 import com.mesozoic_eden.app.model.Employee;
 import com.mesozoic_eden.app.park.Park;
+import com.mesozoic_eden.app.park.ParkLocations;
+
 import java.util.Scanner;
 
 public class App {
@@ -26,11 +28,30 @@ public class App {
     }
 
     private void populatePark() {
-        mesoEden.getDinosaurManager().add(new Dinosaur("Rexy", 78, "Tiranosaurus", DinosaurType.CARNIVORE));
-        mesoEden.getDinosaurManager().add(new Dinosaur("Argy", 35, "Argentinosaurus", DinosaurType.HERVIBORE));
-        mesoEden.getDinosaurManager().add(new Dinosaur("Bronko", 10, "Broncosaurus", DinosaurType.OMNIVORE));
-        mesoEden.getDinosaurManager().add(new Dinosaur("Dummy", 67, "Dummysaurus", DinosaurType.OMNIVORE));
-        mesoEden.getDinosaurManager().add(new Dinosaur("Oldy", 189, "Oldysaurus", DinosaurType.HERVIBORE));
+        mesoEden.getDinosaurManager().add(
+                new Dinosaur("Rexy", 78, "Tiranosaurus", DinosaurType.CARNIVORE),
+                ParkLocations.SAVANNA_PLAIN,
+                "Roaming");
+
+        mesoEden.getDinosaurManager().add(
+                new Dinosaur("Argy", 35, "Argentinosaurus", DinosaurType.HERVIBORE),
+                ParkLocations.JUNGLE_RIVER,
+                "Eating");
+
+        mesoEden.getDinosaurManager().add(
+                new Dinosaur("Bronko", 10, "Broncosaurus", DinosaurType.OMNIVORE),
+                ParkLocations.RIVER_DELTA,
+                "Sleeping");
+
+        mesoEden.getDinosaurManager().add(
+                new Dinosaur("Dummy", 67, "Dummysaurus", DinosaurType.OMNIVORE),
+                ParkLocations.VISITOR_CENTER,
+                "Idle");
+
+        mesoEden.getDinosaurManager().add(
+                new Dinosaur("Oldy", 189, "Oldysaurus", DinosaurType.HERVIBORE),
+                ParkLocations.VISITOR_CENTER,
+                "Resting");
 
         mesoEden.getEmployeeManager().add(new Employee("Peter", "Security", 22));
         mesoEden.getEmployeeManager().add(new Employee("Maria", "Tour Guiding", 5));

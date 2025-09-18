@@ -25,6 +25,10 @@ public class Dinosaur {
         return this.species;
     }
 
+    public String getType() {
+        return this.type.toString();
+    }
+
     public void setName(String name) {
         this.name = name;
     }

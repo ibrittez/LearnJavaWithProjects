@@ -5,6 +5,7 @@ import java.util.Scanner;
 import com.mesozoic_eden.app.model.Dinosaur;
 import com.mesozoic_eden.app.model.DinosaurType;
 import com.mesozoic_eden.app.park.Park;
+import com.mesozoic_eden.app.park.ParkLocations;
 
 public class DinoHandler {
     Scanner scanner;
@@ -31,8 +32,13 @@ public class DinoHandler {
 
         DinosaurType type = readDinoType();
 
+        ParkLocations location = readDinoLocation();
+
+        scanner.nextLine(); // fflush(stdin)
+        String status = readDinoStatus();
+
         Dinosaur dino = new Dinosaur(name, age, species, type);
-        park.getDinosaurManager().add(dino);
+        park.getDinosaurManager().add(dino, location, status);
     }
 
     public void edit() {
@@ -114,6 +120,24 @@ public class DinoHandler {
         }
 
         return actualType;
+    }
+
+    private ParkLocations readDinoLocation() {
+        System.out.println("Enter location: ");
+        for (ParkLocations location : ParkLocations.values()) {
+            System.out.println((location.ordinal() + 1) + ". " + location.name());
+        }
+        System.out.print("choice: ");
+
+        int typeInput = scanner.nextInt();
+
+        return ParkLocations.values()[typeInput - 1];
+    }
+
+    private String readDinoStatus() {
+        System.out.print("Enter status: ");
+        String status = scanner.nextLine();
+        return status;
     }
 
 }
