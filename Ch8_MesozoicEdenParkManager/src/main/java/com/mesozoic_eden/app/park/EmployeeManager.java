@@ -37,8 +37,10 @@ public class EmployeeManager {
             System.out.println("[WARNING]: No employees");
             return;
         }
-        System.out.println("Name \tJob Title \tYears of XP");
+
+        System.out.println("ID \tName \tJob Title \tYears of XP");
         for (int i = 0; i < employeeCount; i++) {
+            System.out.print(i + "\t");
             employees[i].displayEmployeeInfoShort();
         }
     }
