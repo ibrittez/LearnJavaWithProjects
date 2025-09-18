@@ -4,6 +4,7 @@ import java.util.Scanner;
 import com.mesozoic_eden.app.park.Park;
 import com.mesozoic_eden.app.handlers.DinoHandler;
 import com.mesozoic_eden.app.handlers.EmployeeHandler;
+import com.mesozoic_eden.app.handlers.TicketHandler;
 
 public class Menus {
     Scanner scanner;
@@ -11,6 +12,7 @@ public class Menus {
 
     private boolean dinoFlag = false;
     private boolean employeeFlag = false;
+    private boolean ticketFlag = false;
 
     public Menus(Scanner scanner, Park park) {
         this.scanner = scanner;
@@ -59,7 +61,12 @@ public class Menus {
                 }
                 break;
             case 3:
-                // manageTickets();
+                this.ticketFlag = true;
+                while (ticketFlag) {
+                    displayTicketMenu();
+                    int ticketChoice = scanner.nextInt();
+                    handleTicketMenuChoice(ticketChoice);
+                }
                 break;
             case 4:
                 // checkVisitorsCount();
@@ -162,6 +169,43 @@ public class Menus {
             case 0:
                 System.out.println("Exiting employee menu");
                 this.employeeFlag = false;
+        }
+    }
+
+    /*
+     * =======================
+     * [TITCKETS MENU]
+     * =======================
+     */
+
+    public void displayTicketMenu() {
+        System.out.println("1. List Tickets");
+        System.out.println("2. Sell Ticket");
+        System.out.println("3. Cancel Ticket");
+        System.out.println("0. Exit");
+        System.out.print("Enter your choice: ");
+    }
+
+    public void handleTicketMenuChoice(int choice) {
+        TicketHandler handler = new TicketHandler(scanner, park);
+
+        cleanScreen();
+
+        switch (choice) {
+            case 1:
+                handler.list();
+                break;
+            case 2:
+                handler.add();
+                break;
+            case 3:
+                handler.cancel();
+                break;
+            default:
+                break;
+            case 0:
+                System.out.println("Exiting employee menu");
+                this.ticketFlag = false;
         }
     }
 
