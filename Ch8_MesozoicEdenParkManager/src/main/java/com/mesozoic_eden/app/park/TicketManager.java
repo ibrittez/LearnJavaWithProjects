@@ -53,6 +53,10 @@ public class TicketManager {
         remove(tickets[index]);
     }
 
+    public int getTicketCount() {
+        return this.ticketCount;
+    }
+
     private boolean validateIndex(int index) {
         if (ticketCount == 0) {
             System.out.println("[WARNING]: No tickets");

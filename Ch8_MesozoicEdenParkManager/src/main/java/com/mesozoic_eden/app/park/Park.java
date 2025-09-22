@@ -35,4 +35,8 @@ public class Park {
     public TicketManager getTicketManager() {
         return ticketManager;
     }
+
+    public boolean getParkStatus() {
+        return this.isParkOpen;
+    }
 }

@@ -69,7 +69,12 @@ public class Menus {
                 }
                 break;
             case 4:
-                // checkVisitorsCount();
+                if (park.getParkStatus()) {
+                    System.out.println("The park is open");
+                    System.out.println("Number of visitors: " + park.getTicketManager().getTicketCount());
+                    break;
+                }
+                System.out.println("The park is closed");
                 break;
             case 5:
                 // manageStaff();

@@ -66,6 +66,8 @@ public class App {
         mesoEden.getTicketManager().add(new Ticket(50.0, guest1));
         mesoEden.getTicketManager().add(new Ticket(25.0, guest2));
         mesoEden.getTicketManager().add(new Ticket(30.0, guest3));
+
+        mesoEden.openPark();
     }
 
 }
