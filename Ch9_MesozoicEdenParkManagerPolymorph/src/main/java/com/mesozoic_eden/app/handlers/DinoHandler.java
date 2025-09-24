@@ -2,7 +2,7 @@ package com.mesozoic_eden.app.handlers;
 
 import java.util.Scanner;
 
-import com.mesozoic_eden.app.model.Dinosaur;
+import com.mesozoic_eden.app.model.dinosaur.Dinosaur;
 import com.mesozoic_eden.app.park.Park;
 import com.mesozoic_eden.app.park.ParkLocations;
 

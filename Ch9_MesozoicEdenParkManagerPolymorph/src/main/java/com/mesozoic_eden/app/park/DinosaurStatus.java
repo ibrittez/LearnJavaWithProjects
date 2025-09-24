@@ -1,6 +1,6 @@
 package com.mesozoic_eden.app.park;
 
-import com.mesozoic_eden.app.model.Dinosaur;
+import com.mesozoic_eden.app.model.dinosaur.Dinosaur;
 
 public class DinosaurStatus {
     private Dinosaur dinosaur;

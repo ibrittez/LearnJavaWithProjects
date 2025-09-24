@@ -1,6 +1,6 @@
 package com.mesozoic_eden.app;
 
-import com.mesozoic_eden.app.model.Dinosaur;
+import com.mesozoic_eden.app.model.dinosaur.Dinosaur;
 import com.mesozoic_eden.app.model.Employee;
 import com.mesozoic_eden.app.model.Guest;
 import com.mesozoic_eden.app.model.Ticket;
