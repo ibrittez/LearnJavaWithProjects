@@ -1,0 +1,73 @@
+package com.mesozoic_eden.app;
+
+import com.mesozoic_eden.app.model.Dinosaur;
+import com.mesozoic_eden.app.model.DinosaurType;
+import com.mesozoic_eden.app.model.Employee;
+import com.mesozoic_eden.app.model.Guest;
+import com.mesozoic_eden.app.model.Ticket;
+import com.mesozoic_eden.app.park.Park;
+import com.mesozoic_eden.app.park.ParkLocations;
+
+import java.util.Scanner;
+
+public class App {
+    public Scanner scanner = new Scanner(System.in);
+    public Park mesoEden = new Park("Mesozoic Eden");
+
+    public static void main(String[] args) {
+        App app = new App();
+        app.start();
+    }
+
+    public void start() {
+        populatePark(); // TODO: remove this; it's only for testing (check unnecesary imports after).
+        Menus menus = new Menus(scanner, mesoEden);
+        while (true) {
+            menus.displayMainMenu();
+            int choice = scanner.nextInt();
+            menus.handleMainMenuChoice(choice);
+        }
+    }
+
+    private void populatePark() {
+        mesoEden.getDinosaurManager().add(
+                new Dinosaur("Rexy", 78, "Tiranosaurus", DinosaurType.CARNIVORE),
+                ParkLocations.SAVANNA_PLAIN,
+                "Roaming");
+
+        mesoEden.getDinosaurManager().add(
+                new Dinosaur("Argy", 35, "Argentinosaurus", DinosaurType.HERVIBORE),
+                ParkLocations.JUNGLE_RIVER,
+                "Eating");
+
+        mesoEden.getDinosaurManager().add(
+                new Dinosaur("Bronko", 10, "Broncosaurus", DinosaurType.OMNIVORE),
+                ParkLocations.RIVER_DELTA,
+                "Sleeping");
+
+        mesoEden.getDinosaurManager().add(
+                new Dinosaur("Dummy", 67, "Dummysaurus", DinosaurType.OMNIVORE),
+                ParkLocations.VISITOR_CENTER,
+                "Idle");
+
+        mesoEden.getDinosaurManager().add(
+                new Dinosaur("Oldy", 189, "Oldysaurus", DinosaurType.HERVIBORE),
+                ParkLocations.VISITOR_CENTER,
+                "Resting");
+
+        mesoEden.getEmployeeManager().add(new Employee("Peter", "Security", 22));
+        mesoEden.getEmployeeManager().add(new Employee("Maria", "Tour Guiding", 5));
+        mesoEden.getEmployeeManager().add(new Employee("Mark", "Feeding ", 1));
+        mesoEden.getEmployeeManager().add(new Employee("Emma", "Security", 28));
+
+        Guest guest1 = new Guest("Lionel Messi", true);
+        Guest guest2 = new Guest("George Williams", false);
+        Guest guest3 = new Guest("Emma Hill", false);
+        mesoEden.getTicketManager().add(new Ticket(50.0, guest1));
+        mesoEden.getTicketManager().add(new Ticket(25.0, guest2));
+        mesoEden.getTicketManager().add(new Ticket(30.0, guest3));
+
+        mesoEden.openPark();
+    }
+
+}
