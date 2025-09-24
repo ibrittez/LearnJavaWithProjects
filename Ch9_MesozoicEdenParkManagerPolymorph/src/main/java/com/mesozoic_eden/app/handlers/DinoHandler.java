@@ -3,7 +3,6 @@ package com.mesozoic_eden.app.handlers;
 import java.util.Scanner;
 
 import com.mesozoic_eden.app.model.Dinosaur;
-import com.mesozoic_eden.app.model.DinosaurType;
 import com.mesozoic_eden.app.park.Park;
 import com.mesozoic_eden.app.park.ParkLocations;
 
@@ -30,14 +29,12 @@ public class DinoHandler {
         scanner.nextLine(); // fflush(stdin)
         String species = readDinoSpecies();
 
-        DinosaurType type = readDinoType();
-
         ParkLocations location = readDinoLocation();
 
         scanner.nextLine(); // fflush(stdin)
         String status = readDinoStatus();
 
-        Dinosaur dino = new Dinosaur(name, age, species, type);
+        Dinosaur dino = new Dinosaur(name, age, species);
         park.getDinosaurManager().add(dino, location, status);
     }
 
@@ -48,12 +45,10 @@ public class DinoHandler {
         System.out.print("Insert dino ID: ");
         int id = scanner.nextInt();
 
-        System.out.println("ID \tName \tAge \tSpecies \tType");
         System.out.println("Which field do you want to edit?");
         System.out.println("1. Name");
         System.out.println("2. Age");
         System.out.println("3. Species");
-        System.out.println("4. Type");
         System.out.println("0. Abort");
 
         scanner.nextLine(); // fflush(stdin)
@@ -69,9 +64,6 @@ public class DinoHandler {
             }
             case 3 -> {
                 park.getDinosaurManager().editSpecies(readDinoSpecies(), id);
-            }
-            case 4 -> {
-                park.getDinosaurManager().editType(readDinoType(), id);
             }
         }
 
@@ -129,23 +121,6 @@ public class DinoHandler {
         System.out.print("Enter species: ");
         String species = scanner.nextLine();
         return species;
-    }
-
-    private DinosaurType readDinoType() {
-        System.out.println("Enter type: ");
-        System.out.println("1. HERVIBORE");
-        System.out.println("2. CARNIVORE");
-        System.out.println("3. OMNIVORE (default)");
-        System.out.print("choice: ");
-        int typeInput = scanner.nextInt();
-        DinosaurType actualType = DinosaurType.OMNIVORE;
-        switch (typeInput) {
-            case 1 -> actualType = DinosaurType.HERVIBORE;
-            case 2 -> actualType = DinosaurType.CARNIVORE;
-            case 3 -> actualType = DinosaurType.OMNIVORE;
-        }
-
-        return actualType;
     }
 
     private ParkLocations readDinoLocation() {

@@ -1,7 +1,6 @@
 package com.mesozoic_eden.app.park;
 
 import com.mesozoic_eden.app.model.Dinosaur;
-import com.mesozoic_eden.app.model.DinosaurType;
 
 public class DinosaurManager {
     private DinosaurStatus[] dinosaurs;
@@ -38,12 +37,12 @@ public class DinosaurManager {
             System.out.println("[WARNING]: No dinosaurs");
             return;
         }
-        System.out.println("ID\tName\tAge\tSpecies\t\tType\t\tLocation\tStatus");
+        System.out.println("ID\tName\tAge\tSpecies\t\tLocation\tStatus");
         for (int i = 0; i < dinoCount; i++) {
             Dinosaur d = dinosaurs[i].getDinosaur();
             System.out.printf(
-                    "%d\t%s\t%d\t%s\t%s\t%s\t%s%n",
-                    i, d.getName(), d.getAge(), d.getSpecies(), d.getType(),
+                    "%d\t%s\t%d\t%s\t%s\t%s%n",
+                    i, d.getName(), d.getAge(), d.getSpecies(),
                     dinosaurs[i].getLocation(), dinosaurs[i].getStatus());
         }
     }
@@ -76,14 +75,6 @@ public class DinosaurManager {
         }
 
         this.dinosaurs[index].getDinosaur().setSpecies(species);
-    }
-
-    public void editType(DinosaurType type, int index) {
-        if (!validateIndex(index)) {
-            return;
-        }
-
-        this.dinosaurs[index].getDinosaur().setType(type);
     }
 
     /*

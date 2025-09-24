@@ -1,7 +1,6 @@
 package com.mesozoic_eden.app;
 
 import com.mesozoic_eden.app.model.Dinosaur;
-import com.mesozoic_eden.app.model.DinosaurType;
 import com.mesozoic_eden.app.model.Employee;
 import com.mesozoic_eden.app.model.Guest;
 import com.mesozoic_eden.app.model.Ticket;
@@ -31,27 +30,27 @@ public class App {
 
     private void populatePark() {
         mesoEden.getDinosaurManager().add(
-                new Dinosaur("Rexy", 78, "Tiranosaurus", DinosaurType.CARNIVORE),
+                new Dinosaur("Rexy", 78, "Tiranosaurus"),
                 ParkLocations.SAVANNA_PLAIN,
                 "Roaming");
 
         mesoEden.getDinosaurManager().add(
-                new Dinosaur("Argy", 35, "Argentinosaurus", DinosaurType.HERVIBORE),
+                new Dinosaur("Argy", 35, "Argentinosaurus"),
                 ParkLocations.JUNGLE_RIVER,
                 "Eating");
 
         mesoEden.getDinosaurManager().add(
-                new Dinosaur("Bronko", 10, "Broncosaurus", DinosaurType.OMNIVORE),
+                new Dinosaur("Bronko", 10, "Broncosaurus"),
                 ParkLocations.RIVER_DELTA,
                 "Sleeping");
 
         mesoEden.getDinosaurManager().add(
-                new Dinosaur("Dummy", 67, "Dummysaurus", DinosaurType.OMNIVORE),
+                new Dinosaur("Dummy", 67, "Dummysaurus"),
                 ParkLocations.VISITOR_CENTER,
                 "Idle");
 
         mesoEden.getDinosaurManager().add(
-                new Dinosaur("Oldy", 189, "Oldysaurus", DinosaurType.HERVIBORE),
+                new Dinosaur("Oldy", 189, "Oldysaurus"),
                 ParkLocations.VISITOR_CENTER,
                 "Resting");
 
