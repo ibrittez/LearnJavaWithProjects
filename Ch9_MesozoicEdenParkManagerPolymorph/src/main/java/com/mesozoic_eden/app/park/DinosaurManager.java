@@ -39,11 +39,8 @@ public class DinosaurManager {
         }
         System.out.println("ID\tName\tAge\tSpecies\t\tLocation\tStatus");
         for (int i = 0; i < dinoCount; i++) {
-            Dinosaur d = dinosaurs[i].getDinosaur();
-            System.out.printf(
-                    "%d\t%s\t%d\t%s\t%s\t%s%n",
-                    i, d.getName(), d.getAge(), d.getSpecies(),
-                    dinosaurs[i].getLocation(), dinosaurs[i].getStatus());
+            System.out.println(i + "\t" + dinosaurs[i].getDinosaur() + "\t" + dinosaurs[i].getLocation() + "\t"
+                    + dinosaurs[i].getStatus());
         }
     }
 

@@ -35,4 +35,9 @@ public class Dinosaur {
         this.species = species;
     }
 
+    @Override
+    public String toString() {
+        return this.name + "\t" + this.age + "\t" + this.species;
+    }
+
 }
