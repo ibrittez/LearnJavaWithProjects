@@ -1,6 +1,6 @@
 package com.mesozoic_eden.app.model.dinosaur;
 
-public class Dinosaur {
+public abstract class Dinosaur {
     private String name;
     private int age;
     private String species;
@@ -35,9 +35,11 @@ public class Dinosaur {
         this.species = species;
     }
 
+    public abstract String getDietType();
+
     @Override
     public String toString() {
-        return this.name + "\t" + this.age + "\t" + this.species;
+        return this.name + "\t" + this.age + "\t" + this.species + "\t" + getDietType();
     }
 
 }

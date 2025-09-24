@@ -2,7 +2,7 @@ package com.mesozoic_eden.app.handlers;
 
 import java.util.Scanner;
 
-import com.mesozoic_eden.app.model.dinosaur.Dinosaur;
+import com.mesozoic_eden.app.model.dinosaur.*;
 import com.mesozoic_eden.app.park.Park;
 import com.mesozoic_eden.app.park.ParkLocations;
 
@@ -29,12 +29,13 @@ public class DinoHandler {
         scanner.nextLine(); // fflush(stdin)
         String species = readDinoSpecies();
 
+        Dinosaur dino = readDinoType(name, age, species);
+
         ParkLocations location = readDinoLocation();
 
         scanner.nextLine(); // fflush(stdin)
         String status = readDinoStatus();
 
-        Dinosaur dino = new Dinosaur(name, age, species);
         park.getDinosaurManager().add(dino, location, status);
     }
 
@@ -121,6 +122,24 @@ public class DinoHandler {
         System.out.print("Enter species: ");
         String species = scanner.nextLine();
         return species;
+    }
+
+    private Dinosaur readDinoType(String name, int age, String species) {
+        System.out.println("Select dinosaur type:");
+        System.out.println("1. Carnivore");
+        System.out.println("2. Herbivore");
+        System.out.println("3. Omnivore");
+        System.out.print("choice: ");
+
+        int typeInput = scanner.nextInt();
+        scanner.nextLine(); // limpiar buffer
+
+        return switch (typeInput) {
+            case 1 -> new Carnivore(name, age, species);
+            case 2 -> new Herbivore(name, age, species);
+            case 3 -> new Omnivore(name, age, species);
+            default -> new Omnivore(name, age, species);
+        };
     }
 
     private ParkLocations readDinoLocation() {
