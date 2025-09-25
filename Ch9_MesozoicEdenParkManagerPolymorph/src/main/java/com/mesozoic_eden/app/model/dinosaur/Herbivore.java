@@ -7,6 +7,6 @@ public class Herbivore extends Dinosaur {
 
     @Override
     public String getDietType() {
-        return "Hervibore";
+        return "Herbivore";
     }
 }
