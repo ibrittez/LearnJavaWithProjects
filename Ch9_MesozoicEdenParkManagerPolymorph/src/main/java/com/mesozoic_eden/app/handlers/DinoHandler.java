@@ -26,10 +26,7 @@ public class DinoHandler {
 
         int age = readDinoAge();
 
-        scanner.nextLine(); // fflush(stdin)
-        String species = readDinoSpecies();
-
-        Dinosaur dino = readDinoType(name, age, species);
+        Dinosaur dino = readDinoType(name, age);
 
         ParkLocations location = readDinoLocation();
 
@@ -49,7 +46,6 @@ public class DinoHandler {
         System.out.println("Which field do you want to edit?");
         System.out.println("1. Name");
         System.out.println("2. Age");
-        System.out.println("3. Species");
         System.out.println("0. Abort");
 
         scanner.nextLine(); // fflush(stdin)
@@ -62,9 +58,6 @@ public class DinoHandler {
             }
             case 2 -> {
                 park.getDinosaurManager().editAge(readDinoAge(), id);
-            }
-            case 3 -> {
-                park.getDinosaurManager().editSpecies(readDinoSpecies(), id);
             }
         }
 
@@ -118,13 +111,7 @@ public class DinoHandler {
         return age;
     }
 
-    private String readDinoSpecies() {
-        System.out.print("Enter species: ");
-        String species = scanner.nextLine();
-        return species;
-    }
-
-    private Dinosaur readDinoType(String name, int age, String species) {
+    private Dinosaur readDinoType(String name, int age) {
         System.out.println("Select dinosaur type:");
         System.out.println("1. Carnivore");
         System.out.println("2. Herbivore");
@@ -135,10 +122,64 @@ public class DinoHandler {
         scanner.nextLine(); // limpiar buffer
 
         return switch (typeInput) {
-            case 1 -> new Carnivore(name, age, species);
-            case 2 -> new Herbivore(name, age, species);
-            case 3 -> new Omnivore(name, age, species);
-            default -> new Omnivore(name, age, species);
+            case 1 -> readCarnivoreSpecies(name, age);
+            case 2 -> readHerbivoreSpecies(name, age);
+            case 3 -> readOmnivoreSpecies(name, age);
+            default -> throw new IllegalArgumentException("[ERROR] Invalid choice: " + typeInput);
+        };
+    }
+
+    private Dinosaur readCarnivoreSpecies(String name, int age) {
+        System.out.println("Select carnivore species:");
+        System.out.println("1. Tiranosaurus Rex");
+        System.out.println("2. Velociraptor");
+        System.out.println("3. Gigantosaurus");
+        System.out.print("choice: ");
+
+        int typeInput = scanner.nextInt();
+        scanner.nextLine(); // limpiar buffer
+
+        return switch (typeInput) {
+            case 1 -> new TRex(name, age);
+            case 2 -> new Velociraptor(name, age);
+            case 3 -> new Gigantosaurus(name, age);
+            default -> throw new IllegalArgumentException("[ERROR] Invalid choice: " + typeInput);
+        };
+    }
+
+    private Dinosaur readHerbivoreSpecies(String name, int age) {
+        System.out.println("Select herbivore species:");
+        System.out.println("1. Argentinosaurus");
+        System.out.println("2. Brachiosaurus");
+        System.out.println("3. Pachyrhinosaurus");
+        System.out.print("choice: ");
+
+        int typeInput = scanner.nextInt();
+        scanner.nextLine(); // limpiar buffer
+
+        return switch (typeInput) {
+            case 1 -> new Argentinosaurus(name, age);
+            case 2 -> new Brachiosaurus(name, age);
+            case 3 -> new Pachyrhinosaurus(name, age);
+            default -> throw new IllegalArgumentException("[ERROR] Invalid choice: " + typeInput);
+        };
+    }
+
+    private Dinosaur readOmnivoreSpecies(String name, int age) {
+        System.out.println("Select carnivore species:");
+        System.out.println("1. Coloradisaurus");
+        System.out.println("2. Ornithomimus");
+        System.out.println("3. Oviraptor");
+        System.out.print("choice: ");
+
+        int typeInput = scanner.nextInt();
+        scanner.nextLine(); // limpiar buffer
+
+        return switch (typeInput) {
+            case 1 -> new Coloradisaurus(name, age);
+            case 2 -> new Ornithomimus(name, age);
+            case 3 -> new Oviraptor(name, age);
+            default -> throw new IllegalArgumentException("[ERROR] Invalid choice: " + typeInput);
         };
     }
 

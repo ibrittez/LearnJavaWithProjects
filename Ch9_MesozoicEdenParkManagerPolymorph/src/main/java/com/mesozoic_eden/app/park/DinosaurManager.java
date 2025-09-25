@@ -66,14 +66,6 @@ public class DinosaurManager {
         this.dinosaurs[index].getDinosaur().setAge(age);
     }
 
-    public void editSpecies(String species, int index) {
-        if (!validateIndex(index)) {
-            return;
-        }
-
-        this.dinosaurs[index].getDinosaur().setSpecies(species);
-    }
-
     /*
      * ===========================
      * [EDIT DINOSAUR STATUS]

@@ -1,8 +1,8 @@
 package com.mesozoic_eden.app.model.dinosaur;
 
-public class Carnivore extends Dinosaur {
-    public Carnivore(String name, int age, String species) {
-        super(name, age, species);
+public abstract class Carnivore extends Dinosaur {
+    public Carnivore(String name, int age) {
+        super(name, age);
     }
 
     @Override

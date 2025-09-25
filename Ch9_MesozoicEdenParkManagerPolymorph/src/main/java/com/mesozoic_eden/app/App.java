@@ -30,27 +30,27 @@ public class App {
 
     private void populatePark() {
         mesoEden.getDinosaurManager().add(
-                new Carnivore("Rexy", 78, "Tiranosaurus"),
+                new TRex("Rexy", 78),
                 ParkLocations.SAVANNA_PLAIN,
                 "Roaming");
 
         mesoEden.getDinosaurManager().add(
-                new Herbivore("Argy", 35, "Argentinosaurus"),
+                new Argentinosaurus("Argy", 35),
                 ParkLocations.JUNGLE_RIVER,
                 "Eating");
 
         mesoEden.getDinosaurManager().add(
-                new Herbivore("Bronko", 10, "Broncosaurus"),
+                new Brachiosaurus("Bronko", 10),
                 ParkLocations.RIVER_DELTA,
                 "Sleeping");
 
         mesoEden.getDinosaurManager().add(
-                new Omnivore("Dummy", 67, "Dummysaurus"),
+                new Coloradisaurus("Dummy", 67),
                 ParkLocations.VISITOR_CENTER,
                 "Idle");
 
         mesoEden.getDinosaurManager().add(
-                new Omnivore("Oldy", 189, "Oldysaurus"),
+                new Oviraptor("Oldy", 189),
                 ParkLocations.VISITOR_CENTER,
                 "Resting");
 
