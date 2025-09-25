@@ -21,6 +21,8 @@ public class DinoHandler {
 
     public void add() {
         scanner.nextLine(); // fflush(stdin)
+
+        cleanScreen();
                             //
         String name = readDinoName();
 
@@ -47,8 +49,10 @@ public class DinoHandler {
         System.out.println("1. Name");
         System.out.println("2. Age");
         System.out.println("0. Abort");
+        System.out.print("choice: ");
 
         scanner.nextLine(); // fflush(stdin)
+
 
         int field = scanner.nextInt();
         scanner.nextLine(); // fflush(stdin)
@@ -73,6 +77,7 @@ public class DinoHandler {
         System.out.println("Which status attribute do you want to edit?");
         System.out.println("1. Location");
         System.out.println("2. Status");
+        System.out.print("choice: ");
 
         scanner.nextLine(); // fflush(stdin)
 
@@ -199,6 +204,11 @@ public class DinoHandler {
         System.out.print("Enter status: ");
         String status = scanner.nextLine();
         return status;
+    }
+
+    private void cleanScreen() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
     }
 
 }

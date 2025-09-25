@@ -114,15 +114,19 @@ public class Menus {
                 break;
             case 2:
                 handler.add();
+                cleanScreen();
                 break;
             case 3:
                 handler.edit();
+                cleanScreen();
                 break;
             case 4:
                 handler.editStatus();
+                cleanScreen();
                 break;
             case 5:
                 handler.remove();
+                cleanScreen();
                 break;
             default:
                 break;
