@@ -1,7 +1,6 @@
 package com.mesozoic_eden.app.park;
 
-import com.mesozoic_eden.app.model.Employee;
-import com.mesozoic_eden.app.model.EmployeeShifts;
+import com.mesozoic_eden.app.model.employee.*;
 
 public class EmployeeManager {
     private Employee[] employees;

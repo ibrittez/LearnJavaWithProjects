@@ -2,8 +2,7 @@ package com.mesozoic_eden.app.handlers;
 
 import java.util.Scanner;
 
-import com.mesozoic_eden.app.model.Employee;
-import com.mesozoic_eden.app.model.EmployeeShifts;
+import com.mesozoic_eden.app.model.employee.*;
 import com.mesozoic_eden.app.park.Park;
 
 public class EmployeeHandler {

@@ -1,4 +1,4 @@
-package com.mesozoic_eden.app.model;
+package com.mesozoic_eden.app.model.employee;
 
 public enum EmployeeShifts {
     UNASIGNED,
