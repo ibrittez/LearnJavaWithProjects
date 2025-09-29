@@ -1,14 +1,12 @@
 package com.mesozoic_eden.app.model.employee;
 
-public class Employee {
+public abstract class Employee {
     private String name;
-    private String jobTitle;
     private int yearsOfExperience;
     private EmployeeShifts shift = EmployeeShifts.UNASIGNED;
 
-    public Employee(String name, String jobTitle, int yearsOfExperience) {
+    public Employee(String name, int yearsOfExperience) {
         this.name = name;
-        this.jobTitle = jobTitle;
         this.yearsOfExperience = yearsOfExperience;
     }
 
@@ -16,9 +14,7 @@ public class Employee {
         return this.name;
     }
 
-    public String getJobTitle() {
-        return this.jobTitle;
-    }
+    public abstract String getJobTitle();
 
     public int getYearsOfExperience() {
         return this.yearsOfExperience;
@@ -28,20 +24,16 @@ public class Employee {
         this.name = name;
     }
 
-    public void setJobTitle(String jobTitle) {
-        this.jobTitle = jobTitle;
-    }
-
     public void setYearsOfExperience(int yearsOfExperience) {
         this.yearsOfExperience = yearsOfExperience;
     }
 
-    public void setShift(EmployeeShifts shift){
+    public void setShift(EmployeeShifts shift) {
         this.shift = shift;
     }
 
     @Override
     public String toString() {
-        return this.name + "\t" + this.jobTitle + "\t" + this.yearsOfExperience + "\t\t" + this.shift.toString();
+        return this.name + "\t" + this.getJobTitle() + "\t" + this.yearsOfExperience + "\t\t" + this.shift.toString();
     }
 }

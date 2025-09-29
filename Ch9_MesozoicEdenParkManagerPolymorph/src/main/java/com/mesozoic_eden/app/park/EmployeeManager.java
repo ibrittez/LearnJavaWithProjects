@@ -52,14 +52,6 @@ public class EmployeeManager {
         this.employees[index].setName(name);
     }
 
-    public void editJobTitle(String jobTitle, int index) {
-        if (!validateIndex(index)) {
-            return;
-        }
-
-        this.employees[index].setJobTitle(jobTitle);
-    }
-
     public void editYearsOfExperience(int yearsOfExperience, int index) {
         if (!validateIndex(index)) {
             return;

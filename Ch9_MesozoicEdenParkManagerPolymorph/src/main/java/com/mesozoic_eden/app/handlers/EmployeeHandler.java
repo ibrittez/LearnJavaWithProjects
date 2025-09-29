@@ -23,11 +23,9 @@ public class EmployeeHandler {
                             //
         String name = readEmployeeName();
 
-        String job = readEmployeeJob();
-
         int experience = readEmployeeExperience();
 
-        Employee employee = new Employee(name, job, experience);
+        Employee employee = readEmployeeJob(name, experience);
         park.getEmployeeManager().add(employee);
     }
 
@@ -40,8 +38,7 @@ public class EmployeeHandler {
 
         System.out.println("Which field do you want to edit?");
         System.out.println("1. Name");
-        System.out.println("2. Job Title");
-        System.out.println("3. Years of xp");
+        System.out.println("2. Years of xp");
         System.out.println("0. Abort");
 
         scanner.nextLine(); // fflush(stdin)
@@ -53,9 +50,6 @@ public class EmployeeHandler {
                 park.getEmployeeManager().editName(readEmployeeName(), id);
             }
             case 2 -> {
-                park.getEmployeeManager().editJobTitle(readEmployeeJob(), id);
-            }
-            case 3 -> {
                 park.getEmployeeManager().editYearsOfExperience(readEmployeeExperience(), id);
             }
         }
@@ -88,12 +82,6 @@ public class EmployeeHandler {
         return name;
     }
 
-    private String readEmployeeJob() {
-        System.out.print("Enter job: ");
-        String job = scanner.nextLine();
-        return job;
-    }
-
     private int readEmployeeExperience() {
         System.out.print("Enter years of experience: ");
         int xp = scanner.nextInt();
@@ -110,6 +98,28 @@ public class EmployeeHandler {
         int shiftInput = scanner.nextInt();
 
         return EmployeeShifts.values()[shiftInput];
+    }
+
+    private Employee readEmployeeJob(String name, int yearsOfExperience) {
+        System.out.println("Select employee job:");
+        System.out.println("1. Feeder");
+        System.out.println("2. Nurse");
+        System.out.println("3. Security");
+        System.out.println("4. Tour guide");
+        System.out.println("5. Manager");
+        System.out.print("choice: ");
+
+        int typeInput = scanner.nextInt();
+        scanner.nextLine(); // limpiar buffer
+
+        return switch (typeInput) {
+            case 1 -> new Feeder(name, yearsOfExperience);
+            case 2 -> new Nurse(name, yearsOfExperience);
+            case 3 -> new Security(name, yearsOfExperience);
+            case 4 -> new TourGuide(name, yearsOfExperience);
+            case 5 -> new Manager(name, yearsOfExperience);
+            default -> throw new IllegalArgumentException("[ERROR] Invalid choice: " + typeInput);
+        };
     }
 
 }

@@ -1,7 +1,7 @@
 package com.mesozoic_eden.app;
 
 import com.mesozoic_eden.app.model.dinosaur.*;
-import com.mesozoic_eden.app.model.employee.Employee;
+import com.mesozoic_eden.app.model.employee.*;
 import com.mesozoic_eden.app.model.Guest;
 import com.mesozoic_eden.app.model.Ticket;
 import com.mesozoic_eden.app.park.Park;
@@ -54,10 +54,10 @@ public class App {
                 ParkLocations.VISITOR_CENTER,
                 "Resting");
 
-        mesoEden.getEmployeeManager().add(new Employee("Peter", "Security", 22));
-        mesoEden.getEmployeeManager().add(new Employee("Maria", "Tour Guiding", 5));
-        mesoEden.getEmployeeManager().add(new Employee("Mark", "Feeding ", 1));
-        mesoEden.getEmployeeManager().add(new Employee("Emma", "Security", 28));
+        mesoEden.getEmployeeManager().add(new Security("Peter", 22));
+        mesoEden.getEmployeeManager().add(new TourGuide("Maria", 5));
+        mesoEden.getEmployeeManager().add(new Feeder("Mark", 1));
+        mesoEden.getEmployeeManager().add(new Security("Emma", 28));
 
         Guest guest1 = new Guest("Lionel Messi", true);
         Guest guest2 = new Guest("George Williams", false);
