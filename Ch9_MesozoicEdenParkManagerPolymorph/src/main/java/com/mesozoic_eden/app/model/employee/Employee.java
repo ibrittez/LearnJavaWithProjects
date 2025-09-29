@@ -40,24 +40,8 @@ public class Employee {
         this.shift = shift;
     }
 
-    public void displayEmployeeInfo() {
-        System.out.println("======================");
-        System.out.println("Employee info:");
-        System.out.println("    name:\t\t" + this.name);
-        System.out.println("    job title:\t\t" + this.jobTitle);
-        System.out.println("    years of xp:\t" + this.yearsOfExperience);
-        System.out.println("    shift\t" + this.shift.toString());
-        System.out.println("======================");
-    }
-
     @Override
     public String toString() {
         return this.name + "\t" + this.jobTitle + "\t" + this.yearsOfExperience + "\t\t" + this.shift.toString();
     }
-
-    public void displayEmployeeInfoShort() {
-        System.out.println(
-                this.name + "\t" + this.jobTitle + "\t" + this.yearsOfExperience + "\t\t" + this.shift.toString());
-    }
-
 }
