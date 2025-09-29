@@ -40,8 +40,7 @@ public class EmployeeManager {
 
         System.out.println("ID \tName \tJob Title \tYears of XP \tShift");
         for (int i = 0; i < employeeCount; i++) {
-            System.out.print(i + "\t");
-            employees[i].displayEmployeeInfoShort();
+            System.out.println(i + "\t" + employees[i]);
         }
     }
 

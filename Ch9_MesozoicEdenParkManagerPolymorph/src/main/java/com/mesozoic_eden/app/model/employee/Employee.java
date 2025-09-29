@@ -50,6 +50,11 @@ public class Employee {
         System.out.println("======================");
     }
 
+    @Override
+    public String toString() {
+        return this.name + "\t" + this.jobTitle + "\t" + this.yearsOfExperience + "\t\t" + this.shift.toString();
+    }
+
     public void displayEmployeeInfoShort() {
         System.out.println(
                 this.name + "\t" + this.jobTitle + "\t" + this.yearsOfExperience + "\t\t" + this.shift.toString());
